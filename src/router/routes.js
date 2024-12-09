@@ -1,9 +1,16 @@
+import LoginLayout from 'layouts/LoginLayout.vue'
+import BaseLayout from 'layouts/BaseLayout.vue'
+import CustomersPage from 'pages/customers/CustomersPage.vue'
+import MainLayout from 'layouts/MainLayout.vue'
+
 const routes = [
+  {path: '/login', component: LoginLayout},
+  {path: '/', component: MainLayout},
   {
-    path: '/',
-    component: () => import('layouts/MainLayout.vue'),
+    path: '/home',
+    component: BaseLayout,
     children: [
-      { path: '', component: () => import('pages/IndexPage.vue') }
+      {path: '/customers', component: CustomersPage}
     ]
   },
 
